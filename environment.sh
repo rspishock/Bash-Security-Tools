@@ -5,6 +5,16 @@ read $system
 
 echo Creating environment
 
+# update apt
+sudo apt-get update
+
+# collect list of outdated python packages
+pip list --outdated
+
+# upgrade pip
+pip install --upgrade
+
+
 mkdir Results; cd Results
 
 # create directories
