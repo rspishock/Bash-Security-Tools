@@ -8,11 +8,17 @@ echo Creating environment
 # update apt
 sudo apt-get update
 
-# collect list of outdated python packages
-pip list --outdated
+if pip3 -V
+then
+    # collect list of outdated python packages
+    pip list --outdated
 
-# upgrade pip
-pip install --upgrade
+    # upgrade pip
+    # pip install --upgrade
+
+    echo "pip updated"
+else echo "pip not found."
+fi;
 
 
 mkdir Results; cd Results
