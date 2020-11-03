@@ -22,4 +22,4 @@ bash environment.sh
 A simple script that will ping hosts on a given network twice to determine if they are up.  This script can be used create a list of IPs to utilize with an nmap scan.
 
 #### Usage
-bash sweep.sh
+./sweep.sh
