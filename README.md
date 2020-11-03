@@ -15,7 +15,7 @@ The script was originally created using VSCode on a Late 2018 MacBook Pro, 32GB 
 A simple script which can be used to set up a directory structure for risk assessments and pentesting.
 
 ##### Usage
-bash environment.sh
+./environment.sh
 
 
 #### sweep.sh
