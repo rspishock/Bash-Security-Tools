@@ -1,29 +1,32 @@
 #! /bin/bash
 
+DATE=$(date +%F)
+
 echo Enter system name
-read $system
+read $SYSTEM
 
 echo Creating environment
+mkdir ${SYSTEM}_Scan_${DATE}
 
 # update apt
 sudo apt-get update
 
 if pip3 -V
 then
-    # collect list of outdated python packages
-    pip list --outdated
-
     # upgrade pip
-    pip install --upgrade pip
+    pip3 install --upgrade pip
+    
+    # update all outdated pip files
+    pip3 list -o | cut -f1 -d' ' | tr " " "\n" | awk '{if(NR>=3)print}' | cut -d' ' -f1 | xargs -n1 pip3 install -U
 
-    echo "pip updated"
-else echo "pip not found."
+    echo "[+] pip and outdated libraries updated"
+else echo "[-] pip not found."
 fi;
 
 
 if python -V | python3 -V
-    then echo "Python available"
-    else echo "Python not available.  Install if needed"
+    then echo "[+] Python available"
+    else echo "[-] Python not available.  You will have to install if needed"
 fi;
 
 mkdir Results; cd Results
