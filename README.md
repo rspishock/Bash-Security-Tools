@@ -1,9 +1,10 @@
-# Bash-Security-Tools
-A collection of security and pen testing tools written in Bash
+# Security Tools
+A collection of security and pen testing tools written in Bash and Python
 
 ## Tools
 ### environment.sh
 ### sweep.sh
+### generate_ip.py
 
 
 ##### Tools and technologies used
@@ -23,3 +24,11 @@ A simple script that will ping hosts on a given network twice to determine if th
 
 #### Usage
 ./sweep.sh
+
+
+#### generate_ip.py
+A simple script which can be used to generate a list of random IP addresses.  This script is intended to be used to generate a list of decoy IP addresses to be
+used to conceal the source of an nmap scan.
+
+#### Usage
+./generate-ip.py 
