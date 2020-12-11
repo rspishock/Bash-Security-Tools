@@ -9,7 +9,7 @@ echo Creating environment
 mkdir ${SYSTEM}_Scan_${DATE}
 
 # update apt
-sudo apt-get update
+sudo apt-get update && apt-get dist-upgrade
 
 if pip3 -V
 then
