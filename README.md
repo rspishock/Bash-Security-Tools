@@ -31,4 +31,4 @@ A simple script which can be used to generate a list of random IP addresses.  Th
 used to conceal the source of an nmap scan.
 
 #### Usage
-./generate-ip.py 
+./generate-ip.py -n <--network> <network in CIDR notation> -c <--count> <number of IPs to generate>
