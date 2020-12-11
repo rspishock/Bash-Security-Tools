@@ -3,7 +3,7 @@
 
 from random import randrange
 import argparse
-# import ipaddr
+import ipaddr
 
 
 def get_arguments():
@@ -19,21 +19,20 @@ def get_arguments():
 
 
 def generate_random_ip(network, ip_count = 1):
+    """Generates the specified number of IPs in the supplied network block."""
     ip_list = []
-    # network = ipaddr.IPv4Network(network)
+    network = ipaddr.IPv4Network(network)
 
-    print(network)
+    for i in range(ip_count):
+        network = ipaddr.IPv4Network(network)
+        randmon_ip = ipaddr.IPv4Address(random.randrange(int(network.network) + 1, int(network.broadcast) - 1))
 
-#     for i in range(ip_count):
-#         # ip
-#         ip_list.append(ip)
+        ip_list.append(random_ip)
+
+    return ip_list
 
 
- 
-# network = ipaddr.IPv4Network('59.185.23.0/24)
-# randmon_ip = ipaddr.IPv4Address(random.randrange(int(network.network) + 1, int(network.broadcast) - 1))
 options = get_arguments()
 network = options.network
-
-
-generate_random_ip(network)
+count = options.count
+generate_random_ip(network, count)
