@@ -21,4 +21,26 @@ def main():
         infile = open(sys.argv[1], 'r')
 
         for event, elem in iterparse(infile):
-            if elem.tag == 'host'
+            if elem.tag == 'host':
+                # add defaults to cover missing values
+                macaddr = {}
+                hostnames = []
+                os = []
+                addrs = elem.findall('address')
+                # all addresses, IPv4, IPv6 (if exists), MAC
+
+                for addr in addrs:
+                    type = add.get('addrtype')
+                    if (type == 'ipv4'):
+                        ipaddr = addr.get('addr')
+                    if (type == 'mac'):  # there are two useful things to get here
+                        macaddr = {'addr': addr.get('addr'),
+                                   'vendor': addr.get('vendor')}
+
+                        hostlist = elemfindall('hostname')
+                        for host in hostlist:
+                            hostnames += [{'name': host.get('name'),
+                                           'type': hsot.get('type')}]
+
+                        # OS detection
+                        
