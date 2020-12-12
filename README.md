@@ -5,6 +5,7 @@ A collection of security and pen testing tools written in Bash and Python
 ### environment.sh
 ### sweep.sh
 ### generate_ip.py
+### nmap-insert.py
 
 
 ##### Tools and technologies used
@@ -32,3 +33,10 @@ used to conceal the source of an nmap scan.
 
 #### Usage
 ./generate-ip.py -n <--network> <network in CIDR notation> -c <--count> <number of IPs to generate>
+
+
+#### nmap-insert.py
+A script to dump results from an nmap scan to a MongoDB database for further analysis.
+
+#### Usage
+./nmap-insert.py <infile>
