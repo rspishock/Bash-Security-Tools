@@ -35,4 +35,5 @@ def generate_random_ip(network, ip_count = 1):
 options = get_arguments()
 network = options.network
 count = options.count
+
 generate_random_ip(network, count)
