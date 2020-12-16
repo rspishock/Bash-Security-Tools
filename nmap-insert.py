@@ -62,4 +62,23 @@ def main():
                             'service': port.find('service').get('name')}]
             elem.clear()
 
-                                    
+        host = {
+            'ip': ipaddr,
+            'hsotnames': hostnames,
+            'mac': macaddr,
+            'ports': ports,
+            'os': os,
+            'updated': datetime.datetime.utcnow()
+        }
+
+        if db.hosts.count(['ip': ipaddr]) > 0:
+            db.hosts.update_one(
+                {'ip': ipaddr},
+                {'$set': host}
+            )
+        else:
+            db.hosts.insert(host)
+
+    infile.close()  # and we're done.
+
+main()
