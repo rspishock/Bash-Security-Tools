@@ -9,7 +9,7 @@ client = MongoClient('mongodb://localhost:27017')
 db = client['vulnmgt']
 
 # host = OIDs map
-oid_List = {}
+oidList = {}
 
 def usage():
     print('Usage: $ ./openvas-insert.py <infile>')
@@ -59,14 +59,14 @@ def main():
             if db.vulnerabilities.count({'oid': oid})  == 0:
                 db.vulnerabilities.insert(result)
 
-            if ipaddr not in oid_List.keys():
-                oid_List[ipaddr] = []
+            if ipaddr not in oidList.keys():
+                oidList[ipaddr] = []
 
-            oid_List[ipaddr].append({'proto': proto,
+            oidList[ipaddr].append({'proto': proto,
                                      'port': port,
                                      'oid': oid})
 
-            for ipaddress in oid_List.keys():
+            for ipaddress in oidList.keys():
                 if db.hosts.count({'ip': ipaddress}) == 0:
                     db.hosts.insert({'ip': ipaddress,
                                      'mac': {'addr': '', 
@@ -75,11 +75,11 @@ def main():
                                      'hostnames': [],
                                      'os': [],
                                      'updated': datetime.datetime.utcnow(),
-                                     'oids': oid_List[ipaddress]})
+                                     'oids': oidList[ipaddress]})
                 else:
                     db.hosts.update_one({'ip': ipaddress},
                                         {'$set': {'updated': datetime.datetime.utcnow(),
-                                                  'oids': oid_List[ipaddress]}})
+                                                  'oids': oidList[ipaddress]}})
 
     infile.close()  # we're done
 
