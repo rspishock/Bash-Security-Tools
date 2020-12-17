@@ -6,6 +6,7 @@ A collection of security and pen testing tools written in Bash and Python
 ### sweep.sh
 ### generate_ip.py
 ### nmap-insert.py
+### openvas-insert.py
 
 
 ##### Tools and technologies used
@@ -40,3 +41,10 @@ A script to dump results from an nmap scan to a MongoDB database for further ana
 
 #### Usage
 ./nmap-insert.py <infile>
+
+
+#### openvas-insert.py
+A script to collect OID and CVSS information from a host and dumps them to a MongoDB database for further analysis.
+
+#### Usage
+./openvas-insert.py <infile>
