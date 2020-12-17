@@ -12,7 +12,7 @@ client = MongoClient('mongodb://localhost:27017')
 db = client['vulnmgt']
 
 def usage():
-    print('Usage: $ nmap-insert.py <infile>')
+    print('Usage: $ ./nmap-insert.py <infile>')
 
 
 def main():
