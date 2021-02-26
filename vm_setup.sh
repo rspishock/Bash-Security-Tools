@@ -11,6 +11,10 @@ echo "Installing Git"
 # install Git
 apt-get install git
 
+echo "Installing MongoDB"
+# install MongoDB
+apt-get install mongodb-server-core
+
 # install OpenVAS packages
 add-apt-repository ppa:mrazavi/openvas
 
@@ -31,6 +35,9 @@ openvasmd --rebuild --progress
 # cloning cve-search
 git clone https://github/cve-search/cve-search.git
 cd cve-search; pip3 install -r requirements.txt
+
+# populate database
+./sbin/db_mgmt_json.py -p
 
 
 echo "Envrionment complete."
