@@ -1,5 +1,5 @@
 #! /user/bin/python
-"""A script to gather the current security posture of a system during a rick assessment and dump it into a 
+"""A script to gather the current security posture of a system during a risk assessment and dump it into a 
 MongoDB DB for retention and further analysis."""
 
 from xml.etree.cElementTree import iterparse
